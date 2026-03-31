@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Value Changer</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: url("./bg.jpeg") no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+    }
+    
+    .container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+    
+    h4 {
+      font-size: 3rem;
+      text-shadow: 1px 1px 5px black;
+      margin-bottom: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+    
+    input {
+      width: 100%;
+      max-width: 350px;
+      padding: 10px;
+      font-size: 20px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 20px;
+      font-family: sans-serif;
+    }
+    
+    .btn {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+    
+    button {
+      width: 100%;
+      max-width: 300px;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      transition: background 0.3s;
+    }
+    
+    button:hover {
+      background-color: #0056b3;
+    }
+    
+    @media screen and (max-width: 600px) {
+      h4 {
+        font-size: 2.5rem;
+      }
+      
+      label {
+        font-size: 1rem;
+      }
+      
+      input {
+        font-size: 18px;
+      }
+      
+      button {
+        font-size: 14px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h4>Value Changer</h4>
+    <label for="value">Enter Value</label>
+    <input type="text" id="value" placeholder="Enter Value" />
+    <div class="btn">
+      <button id="Upper_case">Upper Case</button>
+      <button id="Lower_case">Lower Case</button>
+      <button id="Random">Random Case</button>
+    </div>
+  </div>
+  
+  <script>
+    const input = document.getElementById("value");
+    const upper = document.getElementById("Upper_case");
+    const lower = document.getElementById("Lower_case");
+    const random = document.getElementById("Random");
+    
+    upper.addEventListener("click", () => {
+      input.value = input.value.toUpperCase();
+    });
+    
+    lower.addEventListener("click", () => {
+      input.value = input.value.toLowerCase();
+    });
+    
+    random.addEventListener("click", () => {
+      const text = input.value.split("").map(char => {
+        return Math.random() < 0.5 ? char.toUpperCase() : char.toLowerCase();
+      }).join("");
+      input.value = text;
+    });
+  </script>
+</body>
+
+</html>
