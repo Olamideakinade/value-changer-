@@ -2,7 +2,7 @@
 
 A simple web app to change the case of text input:
 
-- Upper Case
+- Upper Case-
 - Lower Case
 - Random Case
 - Copy to Clipboard
